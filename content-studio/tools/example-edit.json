@@ -1,0 +1,122 @@
+{
+ "output": "out/ig_fb_main.mp4",
+ "hook": {
+  "text": "The first sign your dog is aging\\N(it's not his legs)",
+  "start": 0,
+  "end": 3.4
+ },
+ "label": {
+  "text": "AI-generated video · Mito is a real beagle",
+  "start": 0,
+  "end": 4.5
+ },
+ "accent": [
+  "ONE",
+  "TWO",
+  "THREE",
+  "MOUTH",
+  "GUT",
+  "TARTAR",
+  "BREATH",
+  "VET",
+  "SAVE",
+  "FOLLOW",
+  "MITO",
+  "MITO'S"
+ ],
+ "captions": true,
+ "loudness": -14,
+ "segments": [
+  {
+   "audio": "clips/t1_own.wav",
+   "text": "Nobody warns you that the first sign your dog is getting old shows up in his mouth. Let me show you the three things I check on Mito every week.",
+   "videos": [
+    {
+     "file": "clips/t1.mp4"
+    }
+   ],
+   "zoom": true,
+   "pad": 0.12
+  },
+  {
+   "audio": "clips/t2_own.wav",
+   "text": "We all watch for the big stuff, like limping, or slowing down on walks. Yet the mouth shows it first, and it's the one place we never look. It takes thirty seconds.",
+   "videos": [
+    {
+     "file": "clips/t2.mp4"
+    }
+   ],
+   "zoom": true,
+   "pad": 0.12
+  },
+  {
+   "audio": "vo/a3.wav",
+   "text": "One. Lift the lip, and look where the tooth meets the gum. Tartar building up there is your cue to act.",
+   "videos": [
+    {
+     "file": "clips/b3.mp4"
+    }
+   ],
+   "fit": "stretch",
+   "pad": 0.12,
+   "title": "CHECK 1/3 · THE GUM LINE"
+  },
+  {
+   "audio": "vo/a4.wav",
+   "text": "Two. His breath. Don't take a quick sniff. Lean in. If it smells fishy, or like metal, something deeper might be going on.",
+   "videos": [
+    {
+     "file": "clips/b4.mp4"
+    }
+   ],
+   "fit": "stretch",
+   "pad": 0.12,
+   "title": "CHECK 2/3 · HIS BREATH"
+  },
+  {
+   "audio": "vo/a5.wav",
+   "text": "Three. Watch him eat. If he chews on one side only, or struggles with his food, his mouth needs support.",
+   "videos": [
+    {
+     "file": "clips/b5.mp4"
+    }
+   ],
+   "fit": "stretch",
+   "pad": 0.12,
+   "title": "CHECK 3/3 · HOW HE CHEWS"
+  },
+  {
+   "audio": "clips/t6_own.wav",
+   "text": "Here's what most people miss. The mouth is where problems show up first, but it's not the whole story. Gut health plays a part too, so brushing alone isn't always enough.",
+   "videos": [
+    {
+     "file": "clips/t6.mp4"
+    }
+   ],
+   "zoom": true,
+   "pad": 0.12
+  },
+  {
+   "audio": "vo/a7.wav",
+   "text": "That's why a lot of owners add one scoop of a greens powder to the bowl. Look for chlorophyll, probiotics and spirulina in one, and ask your vet if it fits your dog.",
+   "videos": [
+    {
+     "file": "clips/b7.mp4"
+    }
+   ],
+   "fit": "stretch",
+   "pad": 0.12
+  },
+  {
+   "audio": "clips/t8_own.wav",
+   "text": "And if you spot any of these three, book a vet check. Save this, so you remember to check this weekend. Which one are you trying first?",
+   "videos": [
+    {
+     "file": "clips/t8.mp4"
+    }
+   ],
+   "zoom": true,
+   "pad": 0.12
+  }
+ ]
+}

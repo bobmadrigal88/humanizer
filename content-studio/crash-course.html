@@ -1,0 +1,92 @@
+<title>AI Video Crash Course</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a short lesson book. One column of 7 lessons, each with a kid-simple picture-in-words, the real steps, and a one-question check. */
+:root{
+  --bg:#f5f4f0; --panel:#ffffff; --ink:#1c1915; --muted:#665e56; --line:#e2ddd5;
+  --tan:#a8612a; --tan-soft:#f3e6da; --collar:#c3313a; --ok:#2f7d4f; --ok-soft:#e3f2e8; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --display:"Fraunces", Georgia, serif; --body:"Atkinson Hyperlegible", system-ui, sans-serif; --mono:"JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15120e; --panel:#1f1b16; --ink:#f1ebe4; --muted:#ab9f93; --line:#3a332b;
+  --tan:#e0995e; --tan-soft:#3a2a1d; --collar:#ff6b72; --ok:#6fd39a; --ok-soft:#1d3326; --bad:#ff8a80; --bad-soft:#3d1f1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15120e; --panel:#1f1b16; --ink:#f1ebe4; --muted:#ab9f93; --line:#3a332b;
+  --tan:#e0995e; --tan-soft:#3a2a1d; --collar:#ff6b72; --ok:#6fd39a; --ok-soft:#1d3326; --bad:#ff8a80; --bad-soft:#3d1f1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.15}
+h1{font-size:clamp(30px,6vw,46px);font-weight:800} h2{font-size:23px;font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.progress{display:flex;gap:6px;align-items:center}
+.progress span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.progress span.done{background:var(--tan)}
+.lesson{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.kid{background:var(--tan-soft);border-radius:10px;padding:12px 14px}
+.kid b{color:var(--tan)}
+ol,ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:4px}
+.quiz{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:12px}
+.quiz button{font:16px var(--body);text-align:left;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.quiz button.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.quiz button.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.quiz button:focus-visible{outline:3px solid var(--tan);outline-offset:2px}
+.fb{font-size:15px;color:var(--muted);min-height:1.4em}
+.term{border-bottom:2px dotted var(--tan);cursor:help;position:relative}
+.term:hover::after,.term:focus::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 6px);width:min(260px,70vw);background:var(--ink);color:var(--bg);font-size:14px;line-height:1.4;padding:8px 10px;border-radius:8px;z-index:5}
+.score{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;z-index:4;display:flex;flex-direction:column;gap:6px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+</style>
+
+<div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <span class="eyebrow">For Bob · 7 lessons · about 15 minutes</span>
+    <h1>AI Video Crash Course</h1>
+    <p>How we turn one idea into a Valentina &amp; Mito video. Each lesson has a "like you're five" picture, the real steps, and one quick question. Hover the dotted words for meanings.</p>
+  </div>
+  <div class="score"><div class="progress" id="prog" aria-label="Lessons answered"></div><span class="eyebrow" id="scoreTxt">0 of 7 answered</span></div>
+  <div id="lessons" style="display:flex;flex-direction:column;gap:22px"></div>
+  <div class="lesson" style="background:var(--tan-soft);border-color:var(--tan)">
+    <h2>Your 5-line cheat sheet</h2>
+    <ol>
+      <li>Hook + last line first. Script around 225 words for 1:30.</li>
+      <li>Pictures first (cheap), then video (costly).</li>
+      <li>One voice for every line. Talking clips keep their own lip-synced sound.</li>
+      <li>Captions inside the safe zone. AI label on every post.</li>
+      <li>No selling before 1,000 followers. Valentina never says she uses a product.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+const L=[
+ {t:"The idea and the hook",kid:"A video is like a joke. If the first words aren't funny, nobody waits for the punchline. The <b>hook</b> is the first words.",
+  steps:["Write the first line and the last line before anything else.","The first line must make sense with the sound off (we put it on screen too).","Promise something small and clear: \"3 checks, 30 seconds\"."],
+  q:"Which hook is stronger?",a:["\"Hi guys, today I want to talk about dogs.\"","\"The first sign your dog is aging isn't in his legs.\""],r:1,why:"It opens a question in the viewer's head, so they stay for the answer."},
+ {t:"Script to time",kid:"Talking is like walking at a steady speed: about <b>150 words every minute</b>. So a 1:30 video fits about 225 words.",
+  steps:["Count words. Divide by 150. That's your minutes.","Cut repeats first, then side stories.","Keep your own words. Make them shorter, don't make them fancier."],
+  q:"Your script is 420 words. How long will it run?",a:["About 1:30","About 2:45"],r:1,why:"420 ÷ 150 = 2.8 minutes. That's why we trimmed your script."},
+ {t:"Beats and shots",kid:"A <b>beat</b> is one Lego brick of the story. Some bricks show Valentina talking. Others show what she's talking about (<span class='term' tabindex='0' data-tip='Extra footage shown while the voice keeps talking, like the close-up of Mito’s teeth.'>B-roll</span>).",
+  steps:["One beat per idea.","If the line says \"look\", \"lift\" or \"watch\", show it (B-roll).","Keep the same camera angle while the topic stays the same."],
+  q:"\"Lift the lip and look at the gum line\" should be…",a:["Valentina talking to camera","A close-up of the lip being lifted"],r:1,why:"Show, don't tell. B-roll on every \"look at\" line keeps people watching."},
+ {t:"Same face every time",kid:"AI forgets faces like a goldfish. We give it a <b>name tag</b> every time: the same photo plus the same description, called an <span class='term' tabindex='0' data-tip='2–3 sentences describing face, hair, skin, one special mark and the outfit, pasted into every prompt.'>Identity Lock</span>.",
+  steps:["Use one clear front-facing photo (Valentina 30) and Mito's photo.","Paste both Identity Locks into every prompt.","Make still pictures first and check them. Pictures cost 4 credits; video costs far more."],
+  q:"Why make pictures before videos?",a:["Pictures are cheaper to fix","Videos look better without pictures"],r:0,why:"A 4K frame is 4 credits. A talking clip is about 25. Fix mistakes when they're cheap."},
+ {t:"Voice and lip sync",kid:"If Valentina's voice changed every few seconds, it would feel like 3 different people. So we record <b>one voice</b> (\"Gia\") for every line, then make her lips follow it.",
+  steps:["Make one voice file per beat with the same voice.","Give each talking clip its voice file as an audio reference.","The AI shifts timing a little, so talking clips keep their own synced sound."],
+  q:"What makes the video feel like one real person?",a:["The same voice on every line","A different voice for each scene"],r:0,why:"Consistency is the main thing that makes AI feel human."},
+ {t:"Editing and captions",kid:"Captions are like subtitles at the movies for people watching on mute, and that's most people on Reels. They must sit where the app's buttons don't cover them: the <span class='term' tabindex='0' data-tip='On a 1080×1920 video, keep text out of the top 270 px, the bottom 670 px and the right 160 px.'>safe zone</span>.",
+  steps:["1–3 words at a time, big and bold, key words in gold.","Show \"CHECK 1/3, 2/3, 3/3\" so viewers know how far along they are.","Voice loud and clear (-14 LUFS). Music very quiet or none."],
+  q:"Where do captions go?",a:["At the very bottom of the screen","In the middle, above the app's buttons"],r:1,why:"The bottom is covered by the caption text and buttons in the app."},
+ {t:"Posting rules",kid:"New accounts are like new kids at school. If you start selling candy on day one, the teacher (the algorithm) gets suspicious. <b>Help first, sell later.</b>",
+  steps:["Turn on the AI label (Instagram profile + each post, TikTok toggle).","No links, no #ad and no product name before 1,000 followers.","Valentina never says \"I use it\". She's AI, so that's a fake testimonial (FTC rule).","TikTok: no \"comment X for the link\". Use \"save this\" or \"follow for part 2\"."],
+  q:"Can Valentina say \"I give Iron Paws to Mito and his breath got better\"?",a:["Yes, it sounds natural","No, an AI host can't claim personal results"],r:1,why:"The FTC 2024 rule bans testimonials from people who don't exist. Fines can reach about $53k per violation."}];
+const box=document.getElementById("lessons"),prog=document.getElementById("prog");let answered=new Set();
+try{JSON.parse(localStorage.getItem("cc-done")||"[]").forEach(i=>answered.add(i))}catch(e){}
+function upd(){prog.innerHTML=L.map((_,i)=>`<span class="${answered.has(i)?"done":""}"></span>`).join("");document.getElementById("scoreTxt").textContent=`${answered.size} of ${L.length} answered`;try{localStorage.setItem("cc-done",JSON.stringify([...answered]))}catch(e){}}
+box.innerHTML=L.map((l,i)=>`<article class="lesson"><span class="eyebrow">Lesson ${i+1} of ${L.length}</span><h2>${l.t}</h2><div class="kid">${l.kid}</div><ul>${l.steps.map(s=>`<li>${s}</li>`).join("")}</ul><div class="quiz" data-i="${i}"><b>${l.q}</b>${l.a.map((a,k)=>`<button data-k="${k}">${a}</button>`).join("")}<p class="fb" aria-live="polite"></p></div></article>`).join("");
+box.querySelectorAll(".quiz").forEach(q=>q.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{const i=+q.dataset.i,ok=+b.dataset.k===L[i].r;q.querySelectorAll("button").forEach(x=>x.classList.remove("right","wrong"));b.classList.add(ok?"right":"wrong");q.querySelector(".fb").textContent=(ok?"Right. ":"Not quite. ")+L[i].why;if(ok){answered.add(i);upd()}})));
+upd();
+</script>

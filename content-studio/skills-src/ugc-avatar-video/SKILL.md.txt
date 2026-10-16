@@ -1,0 +1,104 @@
+---
+name: ugc-avatar-video
+description: >-
+  Make a finished, platform-ready UGC talking-head short with a recurring AI
+  avatar (and pet): script trim to target length, 4K scene frames, one consistent
+  voice, lip-synced talking clips, B-roll, captions, and separate Instagram,
+  Facebook and TikTok cuts that follow AI-label, FTC and affiliate rules. Use
+  when someone says "make a video with Valentina", "make a Reel/TikTok with my
+  avatar", "turn this script into a UGC video", or "make the IG and TikTok cuts".
+metadata:
+  version: 1.0.0
+  source: "Built in-house 16 Oct 2026 from the Valentina + Mito first video; combines idea-to-film, capcut-ai-editor, JennyHoyos, Content Principles and AICL account rules"
+---
+
+# UGC avatar video
+
+Rename this file to `SKILL.md` after unzipping.
+
+## Inputs to collect (ask until 95% sure)
+
+| Input | Example |
+|---|---|
+| Script (the user's own words) | AICL "Work Things" doc, Scripts section |
+| Avatar + pet references | Higgsfield Soul "Valentina 30", Element "Mito" |
+| Product page (if any) | Amazon listing; read the exact label claims |
+| Target length per platform | 1:30 IG/FB, 1:30 or shorter TikTok |
+| Account stage | Followers count. Under 1,000 = no selling, no links, no #ad |
+| Budget | Credits allowed for this video |
+
+## Pipeline
+
+### 1. Script to time
+- Speaking rate is about 150 words per minute. 1:30 is about 215–230 words.
+- Keep the user's wording. Cut repeats first, then side points.
+- Write the hook and the last line first. Hook + promise inside 3 seconds.
+- Run the humanizer skill. Keep the voice "talking to a friend".
+- **Compliance pass** (see Rules). Rewrite any line that breaks a rule and tell
+  the user which lines changed and why.
+
+### 2. Split into beats
+Each beat is either **TALK** (avatar on camera) or **B-ROLL** (voice over action).
+Put B-roll on every "look at / check / watch" line. Keep the same framing while
+the topic stays the same (from the AICL Omni notes).
+
+### 3. Frames (4K, 9:16)
+- Model: Nano Banana Pro at `resolution: 4k`, `aspect_ratio: 9:16`, with the avatar
+  portrait and the pet image as `image_references`.
+- Paste an Identity Lock for each character and the user's **IMAGE QUALITY**
+  block (iPhone realism) into every prompt.
+- Background in sharp ordinary detail (blurry backgrounds look AI).
+- No real brand labels on AI-made products. Use a plain unlabeled pouch.
+- Review every frame (face, hands, teeth, collar, outfit) before animating.
+
+### 4. Voice
+- One TTS voice for every line (Higgsfield `seed_audio`, a "lived-in, warm"
+  preset such as **Gia**). Write numbers as words.
+- One audio file per beat. Check every file with Whisper against the script.
+
+### 5. Talking clips
+- Seedance 2.0, `mode: fast`, `720p`, `9:16`, start image = frame, the beat's
+  voice file as `audio_references`, duration = voice length rounded up.
+- Prompt = the AICL Omni master prompt (framing, delivery, ACTION, SCRIPT,
+  Realism Lock). Test one clip before batching.
+- Seedance re-times speech slightly (up to ~0.8 s). **Use the clip's own audio
+  on talking beats** so lips stay in sync. Its voice matches the reference
+  (check the median pitch).
+
+### 6. B-roll
+- Kling 3.0 `std`, sound off, start image = frame. One camera move. 8–12 s.
+
+### 7. Assemble
+- `content-studio/tools/assemble.py edit.json` (ffmpeg + Whisper): cuts, clean
+  voice on B-roll, word-by-word captions in the safe zone, beat titles such as
+  "CHECK 1/3", a hook title for sound-off viewers, an AI label, -14 LUFS.
+- Make one cut per platform by swapping only the last beat.
+
+### 8. Quality check before delivery
+- Watch the first and last frame of every beat. Check lip sync on every talk beat.
+- Transcribe the final file and compare with the script.
+- Duration, 1080x1920, H.264, AAC, faststart.
+- Report credits spent.
+
+## Rules (hard)
+
+| Rule | Why |
+|---|---|
+| Turn on the AI label (IG profile + post, FB post, TikTok AIGC) and add "AI-generated host" to the caption | Meta and TikTok rules; IG demotes unlabeled AI-person profiles since 31 Aug 2026 |
+| The avatar never says she used a product or saw results | FTC 2024 rule bans testimonials from people who do not exist |
+| Naming an affiliate product = #ad + "As an Amazon Associate I earn from qualifying purchases", spoken or on screen too | FTC and Amazon Associates |
+| No treat, cure, prevent or kill claims for pet products; send viewers to a vet | FDA treats disease claims as drug claims |
+| Under 1,000 followers: no selling, no links, no #ad, link-free warm-up posts | AICL Protecting Your Account |
+| Max 5 hashtags on IG and TikTok, 1–3 on FB | 2025–2026 platform limits |
+| TikTok: no "comment X for the link" (no auto-DM in US/UK/EU) | Use "save this" or "follow for part 2" |
+| Never invent prices, studies, results or timelines | Humanizer rule |
+
+## Costs seen (Higgsfield, Oct 2026)
+
+| Item | Credits |
+|---|---|
+| Nano Banana Pro 4K frame | 4 |
+| Seed Audio line | 0.3 |
+| Seedance 2.0 fast 720p | 2.5 per second |
+| Kling 3.0 std, no sound | 1.5 per second |
+| A 1:30 video with 3 cuts | about 230 |

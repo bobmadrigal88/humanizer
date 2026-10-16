@@ -1,0 +1,77 @@
+---
+name: capcut-ai-editor
+description: >-
+  Edit short videos with CapCut's AI tools the way a pro does: script, a
+  consistent character, image-to-video clips, voice, auto captions, smart cuts,
+  relight, background removal, music and auto reframe, then one export per
+  platform. Use when someone says "edit this in CapCut", "make a vlog with AI",
+  "add captions", "clean up my voice", "reframe to 9:16", or asks how to use a
+  CapCut AI feature.
+metadata:
+  version: 1.0.0
+  source: "How to Use CapCut AI Tools Better than 99% of Editors, https://youtu.be/lCly-zH6A78"
+---
+
+# CapCut AI editor
+
+Rename this file to `SKILL.md` after unzipping.
+
+## Honesty note
+
+The source video builds a full travel vlog with CapCut's AI tools, starting from
+a consistent character. Its transcript could not be read from the cloud machine
+(YouTube was blocked). The steps below rebuild its method from the video's own
+description, CapCut's official guides and 2026 reviews. Menu names change between
+versions; check them in the installed app.
+
+## The 6-step method
+
+| Step | CapCut tool | What to do | Tip |
+|---|---|---|---|
+| 1. Script | AI Writer, Script to Video | Draft the beats and voice-over | Treat the output as a draft. Rewrite the hook and last line yourself. Run the humanizer skill on it. |
+| 2. Character | AI image, reference images | Make one anchor image. Write a fixed identity description. | CapCut says references do not guarantee the same face. Change only action, place and camera between prompts. |
+| 3. Clips | AI video (image-to-video, Seedance 2.0 in some regions) | Animate each scene from the anchor still | Image-to-video drifts less than text-to-video. |
+| 4. Voice | Text to speech, Enhance voice | One voice for the whole video | Keep the same voice for every line. Voice cloning is Pro. |
+| 5. Assembly | Auto captions, Smart Cut, keyframes, AI music | Cut silences, add captions, slow zooms, music under the voice | Always proofread auto captions. |
+| 6. Polish and export | Relight, Remove background, Auto reframe | Match light between clips, reframe 9:16 | Export one master, then one cut per platform. |
+
+## Feature cheat sheet (desktop)
+
+| Feature | Where | Free or Pro |
+|---|---|---|
+| Auto captions | Left toolbar: Captions, then Auto captions, then Generate | Free (limits) |
+| Text to speech | Text layer, then Text to speech in the right panel | Free (limits) |
+| Enhance voice | Select clip, then Audio, then Enhance voice | Check plan |
+| Smart Cut / AutoCut | Toolbar | Limited free |
+| Remove background | Select clip, then Video, then Remove BG | Free (limits) |
+| Relight | Adjust panel | Check plan |
+| Auto reframe | Video, then Basic, then Auto reframe | Pro in some regions |
+| Keyframes | Diamond icon next to any property | Free |
+| 4K export, voice clone, vocal isolation | Export and Audio panels | Pro |
+
+## Editing rules that make it look pro
+
+1. **Hook in 2 seconds.** Start on the most interesting frame, not a greeting.
+2. **Cut every 2 to 4 seconds** on talking shots. Use a jump cut or a B-roll cut
+   on each new idea.
+3. **Cut on action.** End a clip mid-movement and start the next mid-movement.
+4. **B-roll on every "show me" line.** When the script says "look at", show it.
+5. **Captions:** 1 to 3 words at a time, centered in the safe zone, high
+   contrast, the key word in an accent color.
+6. **Slow push-in** (keyframe scale 100% to 108%) on static talking shots.
+7. **Sound:** voice at about -14 LUFS, music 18 to 24 dB under the voice, a soft
+   whoosh or pop on big cuts only.
+8. **One color look** across all clips. Relight clips that do not match.
+9. **Safe zones (1080 x 1920):** keep text out of the top 270 px, the bottom
+   670 px and the right 160 px.
+
+## Free alternative (no CapCut)
+
+Everything above also runs with free tools: ffmpeg for cuts and audio, Whisper
+for captions, and the `assemble.py` tool in `content-studio/tools/`.
+
+## Hard rules
+
+- Turn on the platform's AI label for AI-made people or scenes.
+- Never invent claims, results or prices.
+- Report which steps you could not check.

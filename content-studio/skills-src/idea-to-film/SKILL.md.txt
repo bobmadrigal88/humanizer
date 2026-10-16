@@ -1,0 +1,112 @@
+---
+name: idea-to-film
+description: >-
+  Turn one idea into a finished short film or vertical video in one guided flow:
+  idea, story beats, character and prop sheets, a storyboard of scenes (each with
+  action and emotion), one shot card per scene with camera and light, generation,
+  sound and assembly. Use when someone says "turn this idea into a video", "make a
+  cinematic short", "storyboard this", "keep my character the same in every shot",
+  or names Buzzy, an AI canvas, or a director canvas.
+metadata:
+  version: 1.0.0
+  source: "Buzzy AI Tutorial (2026) - Turn One Idea Into a Cinematic Film, https://www.youtube.com/watch?v=p4Uz4Q3_zV4"
+---
+
+# Idea to film (the "director canvas" method)
+
+Rename this file to `SKILL.md` after unzipping. It ships as `.txt` so it does not
+clash with other skills in the same repository.
+
+## What the source teaches
+
+The source video (Daniel, "smart tutorials" channel) shows Buzzy, an agentic AI
+canvas. Its point: AI video gets messy when you write the script in one app,
+make pictures in another and edit in a third, and the main character changes face
+between scenes. Buzzy keeps everything on one canvas of linked boxes ("nodes"):
+
+| Canvas step | What it holds | Why it matters |
+|---|---|---|
+| 1. Idea | One sentence | Everything grows from it |
+| 2. Character sheet | Front, side and profile views of the hero | The face stays the same |
+| 3. Prop sheet | Key objects (in the video: a glowing lantern) | Objects stay the same |
+| 4. Storyboard | About 6 scenes, each with an action and an emotion | The story has a shape |
+| 5. Shot frames | One still per shot (close-up, wide, high angle) | You fix problems before paying for video |
+| 6. Video | Each frame animated (Seedance 2.5, Kling, Veo, Runway) | Motion comes last |
+| 7. Audio node | Prompted sound and voice | Sound is part of the plan, not an afterthought |
+
+Only the first minute of the source could be analysed scene by scene. Steps 5 to 7
+also draw on standard film practice. Buzzy prices and export limits were not
+verified.
+
+## The workflow
+
+Work through the steps in order. Show the user the result of each step before
+spending credits on the next one.
+
+### 1. Idea to logline
+Write one sentence: who, wants what, what stands in the way. For a social video,
+write the hook line and the last line first.
+
+### 2. Beats
+Split the story into 4 to 8 beats. Give each beat:
+- **Action:** what we see happen.
+- **Emotion:** what the viewer should feel.
+- **Line:** the exact spoken words, if any.
+
+### 3. Lock the cast and props
+- One clear, front-facing reference photo per character, in even light.
+- Write an **Identity Lock**: 2 to 3 sentences that describe the face, hair,
+  skin, one distinguishing mark and the outfit. Paste it into every prompt.
+- Do the same for animals (coat pattern, age signs, collar) and key props.
+- When a tool supports saved characters (Higgsfield Soul ID or Elements, Buzzy
+  Omni Reference, CapCut character), save them once and reuse them.
+
+### 4. Shot cards
+One card per beat. Fill every field:
+
+| Field | Example |
+|---|---|
+| Shot size | Close-up / medium / wide |
+| Angle | Eye level / high / low / over the shoulder |
+| Camera move | One move only: static, push in, pan, handheld drift |
+| Light | Same light words in every card (for example "afternoon window light from the left") |
+| Subject + action | Identity Lock + what they do |
+| Emotion | One word |
+| Dialogue | Exact words, or "none" |
+| Length | 3 to 10 seconds |
+| Model | Which video model, and why |
+
+Prompt order inside a card: subject, action, camera, motion, light, style,
+references. Keep it plain. One camera move per shot.
+
+### 5. Frames before video
+Generate a still for each card first. Check face, hands, props and continuity
+(same clothes, same room, same light). Fix stills; they are cheap. Then animate.
+
+### 6. Animate
+- Use the approved still as the start frame.
+- Talking shots: use a model that takes an audio reference so the lips match one
+  consistent voice track.
+- B-roll shots: silent, cheaper models are fine; voice-over goes on top.
+- Long scenes: make 10-second pieces and re-run only the piece that drifts.
+
+### 7. Sound and assembly
+- Voice first, then sound effects, then music at a low level under the voice.
+- Hard cuts by default. Cut on action. Put B-roll on every "show me" line.
+- Captions inside the platform safe zone (see the ugc-avatar-video skill).
+- Export one master, then one cut per platform.
+
+## Quality checks before delivery
+
+- The same face, outfit and room in every shot.
+- No warped hands, extra fingers, melted text or logos.
+- The hook lands in the first 2 seconds.
+- Every promised point is delivered; the last line is strong.
+- Cost so far reported to the user in credits.
+
+## Hard rules
+
+- Never invent product claims, results, prices or statistics.
+- Never put a real brand logo or label on an AI-made product unless the brand
+  supplied the artwork.
+- Report anything you could not verify.
